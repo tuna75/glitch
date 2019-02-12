@@ -8,8 +8,7 @@ const secret = process.env.SECRET;
 
 (async () => {
   const browser = await puppeteer.launch({
-    //"headless": false,
-    //"executablePath": "./chrome/chrome",
+    "executablePath": ".tmp/dir/opt/google/chrome/chrome",
     "args": ["--no-sandbox"]
   });
   const options = {
@@ -31,14 +30,6 @@ const secret = process.env.SECRET;
   let r4 = await browser.newPage();
   r4.setUserAgent(agent);
   r4.goto('https://radioearn.com/radio/4/start.php?uid=21346', options);
-
-  setInterval(() => {
-    console.log('Screenshotted.');
-    r1.screenshot({ "path": "./img/r1.png" });
-    r2.screenshot({ "path": "./img/r2.png" });
-    r3.screenshot({ "path": "./img/r3.png" });
-    r4.screenshot({ "path": "./img/r4.png" });
-  }, 300000);
 })();
 
 async function stat(key) {
@@ -56,6 +47,7 @@ async function stat(key) {
   return data;
 }
 
+
 app.get('/', async (req, res) => {
   let data = await stat(secret);
   res.send(data);
@@ -63,4 +55,9 @@ app.get('/', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`);
+  setInterval(async () => {
+    let res = await fetch('/');
+    let data = await res.json();
+    console.log(data);
+  }, 60000);
 });
