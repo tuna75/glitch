@@ -1,8 +1,8 @@
 {
   "name": "radiobot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "radio.js",
   "scripts": {
     "start": "node radio.js"
   },
