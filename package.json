@@ -1,7 +1,7 @@
 {
   "name": "radiobot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Use RadioEarn from Glitch."
   "main": "radio.js",
   "scripts": {
     "start": "node radio.js"
