@@ -39,7 +39,6 @@ async function stat(key) {
   let arr = JSON.parse(sanitized);
   let data = arr.reduce((accumulator, value) => {
     accumulator[value.IP] = accumulator[value.IP] || {};
-    console.log(parseInt(value.Status));
     accumulator[value.IP][value.Station] = (parseInt(value.Status)) ? 'Connected' : 'Disconnect';
     return accumulator;
   }, {});
