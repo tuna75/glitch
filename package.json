@@ -1,10 +1,10 @@
 {
   "name": "radiobot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Use RadioEarn from Glitch.",
-  "main": "radio.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node radio.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.16.4",
